@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Float"/>
+<fullyQualifiedTypeName name="ex1.Employee"/>
+<fullyQualifiedTypeName name="ex1.Semployee"/>
+<fullyQualifiedTypeName name="ex1.Sfreelancer"/>
+<fullyQualifiedTypeName name="connections.ProductDatabase"/>
+<fullyQualifiedTypeName name="classes.Product"/>
+<fullyQualifiedTypeName name="admin.FormProduct"/>
+<fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
+<fullyQualifiedTypeName name="java.beans.Visibility"/>
+<fullyQualifiedTypeName name="java.awt.Window"/>
+<fullyQualifiedTypeName name="login.CashierLogin"/>
+<fullyQualifiedTypeName name="login.AdminLogin"/>
+<fullyQualifiedTypeName name="login.Login"/>
+<fullyQualifiedTypeName name="javax.swing.JTable"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.security.CryptoPrimitive"/>
+<fullyQualifiedTypeName name="javax.swing.text.TableView.TableRow"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="admin.AddStaff"/>
+<fullyQualifiedTypeName name="admin.AddProduct"/>
+<fullyQualifiedTypeName name="cashier.CashierSection"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="product.CRUD_Product"/>
+<fullyQualifiedTypeName name="product.Product"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="staff.Staff"/>
+<fullyQualifiedTypeName name="admin.ViewCashier"/>
+<fullyQualifiedTypeName name="cashier.AddProduct"/>
+<fullyQualifiedTypeName name="cashier.ViewProduct"/>
+<fullyQualifiedTypeName name="admin.AdminSection"/>
+<fullyQualifiedTypeName name="admin.ViewProduct"/>
+<fullyQualifiedTypeName name="staff.CRUD_Staff"/>
+<fullyQualifiedTypeName name="admin.ViewStaff"/>
+</qualifiedTypeNameHistroy>

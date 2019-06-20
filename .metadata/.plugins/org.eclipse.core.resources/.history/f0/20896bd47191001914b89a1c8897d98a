@@ -1,0 +1,79 @@
+package admin;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import product.CRUD_Product;
+import product.Product;
+
+public class ViewProduct {
+
+	private JFrame frame;
+	private JTable table;
+	DefaultTableModel model;
+	private JTable table_1;
+	CRUD_Product crud = new CRUD_Product();
+	private JTable table_2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ViewProduct window = new ViewProduct();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ViewProduct() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 800, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel label = new JLabel("TABLE PRODUCT");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("Tahoma", Font.BOLD, 32));
+		label.setBounds(235, 0, 311, 84);
+		frame.getContentPane().add(label);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 83, 783, 371);
+		frame.getContentPane().add(scrollPane);
+		scrollPane.setViewportView(table);
+		
+		table_2 = new JTable();
+		table_2.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		scrollPane.setViewportView(table_2);
+	}
+}

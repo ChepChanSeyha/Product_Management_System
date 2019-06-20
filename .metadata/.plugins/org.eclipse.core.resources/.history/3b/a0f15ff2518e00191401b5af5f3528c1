@@ -1,0 +1,13 @@
+package ex1;
+
+public class Sfreelancer extends Employee {
+	
+	float monthlySalary = getbSalary() + (getHour()*20);
+
+	public Sfreelancer(String ID, String name, float bSalary, int experience, int hour) {
+		super(ID, name, bSalary, experience, hour);
+		// TODO Auto-generated constructor stub
+	}
+
+
+}

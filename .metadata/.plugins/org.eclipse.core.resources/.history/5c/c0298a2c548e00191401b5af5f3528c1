@@ -1,0 +1,71 @@
+package ex1;
+
+public class Employee {
+	
+	   private String Stype;
+	   private String ID;
+	   private String name;
+	   private float bSalary;
+	   private int experience;
+
+	   public Employee(String Stype, String ID, String name, float bSalary, int experience) {
+	      this.Stype = Stype;
+	      this.ID = ID;
+	      this.name = name;
+	      this.bSalary = bSalary;
+	      this.experience = experience;
+	   }
+
+	   public String toString() {
+	      return Stype + " " + ID + " " + name + " " + bSalary + experience;
+	   }
+
+	public String getStype() {
+		return Stype;
+	}
+
+	public void setStype(String stype) {
+		Stype = stype;
+	}
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public String getID() {
+		return ID;
+	}
+
+	public void setID(String iD) {
+		ID = iD;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getbSalary() {
+		return bSalary;
+	}
+
+	public void setbSalary(float bSalary) {
+		this.bSalary = bSalary;
+	}
+
+	public int getExperience() {
+		return experience;
+	}
+
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+
+}

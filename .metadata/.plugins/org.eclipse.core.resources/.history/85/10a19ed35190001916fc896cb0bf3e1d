@@ -1,0 +1,66 @@
+package admin;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
+import java.awt.Font;
+import javax.swing.SwingConstants;
+
+public class ViewCashier {
+
+	private JFrame frame;
+	private JTable table;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ViewCashier window = new ViewCashier();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ViewCashier() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 800, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+	    String data[][]={ {"101","Amit","670000"},    
+                {"102","Jai","780000"},    
+                {"101","Sachin","700000"}};    
+	    String column[]={"ID","NAME","SALARY"};
+		table = new JTable(data, column);
+		table.setBounds(0, 85, 782, 370);
+		JScrollPane sp=new JScrollPane(table);
+		frame.add(sp);
+		frame.setVisible(true);  
+		
+		JLabel lblTableProduct = new JLabel("TABLE PRODUCT");
+		lblTableProduct.setBounds(235, 0, 311, 84);
+		lblTableProduct.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTableProduct.setFont(new Font("Tahoma", Font.BOLD, 32));
+		frame.getContentPane().add(lblTableProduct);
+	}
+}

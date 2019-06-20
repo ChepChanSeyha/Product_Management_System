@@ -1,0 +1,108 @@
+package admin;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class AddCashier {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AddCashier window = new AddCashier();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AddCashier() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 500, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblAdminLogin = new JLabel("ADD CASHIER");
+		lblAdminLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAdminLogin.setFont(new Font("Tahoma", Font.BOLD, 32));
+		lblAdminLogin.setBounds(85, 13, 311, 84);
+		frame.getContentPane().add(lblAdminLogin);
+		
+		JLabel lblNewLabel = new JLabel("Username");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(40, 136, 134, 37);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPassword.setBounds(40, 202, 134, 37);
+		frame.getContentPane().add(lblPassword);
+		
+		textField = new JTextField();
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField.setBounds(199, 136, 197, 37);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField_1.setColumns(10);
+		textField_1.setBounds(199, 202, 197, 37);
+		frame.getContentPane().add(textField_1);
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnLogin.setBounds(263, 470, 134, 37);
+		frame.getContentPane().add(btnLogin);
+		
+		JLabel label = new JLabel("Password");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		label.setBounds(40, 272, 134, 37);
+		frame.getContentPane().add(label);
+		
+		textField_2 = new JTextField();
+		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField_2.setColumns(10);
+		textField_2.setBounds(199, 272, 197, 37);
+		frame.getContentPane().add(textField_2);
+	}
+
+}

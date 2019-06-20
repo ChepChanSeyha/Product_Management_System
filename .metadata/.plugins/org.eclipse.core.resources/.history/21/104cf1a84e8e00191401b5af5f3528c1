@@ -1,0 +1,10 @@
+package ex1;
+
+public class Sfreelancer extends Employee {
+
+	public Sfreelancer(String ID, String name, float bSalary, String experience) {
+		super(ID, name, bSalary, experience);
+		// TODO Auto-generated constructor stub
+	}
+
+}

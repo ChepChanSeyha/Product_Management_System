@@ -1,0 +1,14 @@
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="ex1.Employee"><rhs name\="ex1.Employee"/><rhs name\="ex1.Semployee"/><rhs name\="ex1.Sfreelancer"/></lhs><lhs name\="ex1.Semployee"><rhs name\="ex1.Semployee"/></lhs><lhs name\="ex1.Sfreelancer"><rhs name\="ex1.Sfreelancer"/></lhs><lhs name\="connections.Connections"><rhs name\="connections.ProductDatabase"/></lhs><lhs name\="connections.ProductDatabase"><rhs name\="connections.ProductDatabase"/></lhs><lhs name\="login.AdminLogin"><rhs name\="login.AdminLogin"/></lhs><lhs name\="login.Login"><rhs name\="login.Login"/></lhs><lhs name\="product.CRUD_Product"><rhs name\="product.CRUD_Product"/></lhs><lhs name\="product.Product"><rhs name\="product.Product"/></lhs><lhs name\="admin.AddProduct"><rhs name\="admin.AddProduct"/></lhs><lhs name\="admin.ViewProduct"><rhs name\="admin.ViewProduct"/></lhs><lhs name\="admin.AddStaff"><rhs name\="admin.AddStaff"/></lhs><lhs name\="admin.AdminSection"><rhs name\="admin.AdminSection"/></lhs><lhs name\="admin.ViewCashier"><rhs name\="admin.ViewCashier"/></lhs><lhs name\="cashier.CashierSection"><rhs name\="cashier.CashierSection"/></lhs><lhs name\="cashier.AddProduct"><rhs name\="cashier.AddProduct"/></lhs><lhs name\="java.lang.CharSequence"><rhs name\="java.lang.String"/></lhs><lhs name\="cashier.ViewProduct"><rhs name\="cashier.ViewProduct"/></lhs><lhs name\="staff.CRUD_Staff"><rhs name\="staff.CRUD_Staff"/></lhs><lhs name\="staff.Staff"><rhs name\="staff.Staff"/></lhs><lhs name\="admin.ViewStaff"><rhs name\="admin.ViewStaff"/></lhs></history>
+content_assist_number_of_computers=17
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=16
+org.eclipse.jdt.ui.text.code_templates_migrated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.templates_migrated=true
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

@@ -1,0 +1,37 @@
+package ex1;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+	public static void main(String[] args) {
+		Semployee em1= new Semployee("SS001", "Salaried", "Chan Bopha", 1200, 3);
+		Semployee em2= new Semployee("SS002", "Salaried", "Sok Dara", 800, 2);
+		Sfreelancer em3= new Sfreelancer("FS001", "Sales", "Sak Sokha", 0, 1);
+		System.out.println(em1.monthlysalary(10));
+		em1.monthlysalary(10);
+		em1.annualbonus();
+		em2.monthlysalary(20);
+		em2.annualbonus();
+		em3.monthlysalary(50);
+		em3.annualbonus(20);
+		File file = new File("DecenberSalary.txt");
+		FileWriter myfile=null;
+		BufferedWriter buffer=null;
+		try {
+			 myfile=new FileWriter(file);
+			 buffer=new BufferedWriter(myfile);
+			buffer.write(em1.toString()+"\n");
+			buffer.write(em2.toString()+"\n");
+			buffer.write(em3.toString()+"\n");
+			buffer.flush();
+		} catch (IOException e) {
+			// TODO: handle exception'
+			System.out.println(e);
+		}
+	}
+	
+	
+	
+}

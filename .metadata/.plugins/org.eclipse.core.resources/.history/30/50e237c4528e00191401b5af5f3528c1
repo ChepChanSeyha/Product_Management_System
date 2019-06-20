@@ -1,0 +1,85 @@
+package ex1;
+
+public class Employee {
+	
+	   private String Stype;
+	   private String ID;
+	   private String name;
+	   private float bSalary;
+	   private float monthlySalary;
+	   private float annuallySaraly;
+	   private int experience;
+	   private int hour;
+
+	   public Employee(String Stype, String ID, String name, float bSalary, float monthlySalary, float annuallySaraly, int experience, int hour) {
+	      this.Stype = Stype;
+	      this.ID = ID;
+	      this.name = name;
+	      this.bSalary = bSalary;
+	      this.monthlySalary = monthlySalary;
+	      this.annuallySaraly = annuallySaraly;
+	      this.experience = experience;
+	      this.hour = hour;
+	   }
+
+	   public String toString() {
+	      return Stype + " " + ID + " " + name + " " + bSalary + monthlySalary + annuallySaraly + experience + hour;
+	   }
+
+	public float getMonthlySalary() {
+		return monthlySalary;
+	}
+
+	public void setMonthlySalary(float monthlySalary) {
+		this.monthlySalary = monthlySalary;
+	}
+
+	public float getAnnuallySaraly() {
+		return annuallySaraly;
+	}
+
+	public void setAnnuallySaraly(float annuallySaraly) {
+		this.annuallySaraly = annuallySaraly;
+	}
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public String getID() {
+		return ID;
+	}
+
+	public void setID(String iD) {
+		ID = iD;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getbSalary() {
+		return bSalary;
+	}
+
+	public void setbSalary(float bSalary) {
+		this.bSalary = bSalary;
+	}
+
+	public int getExperience() {
+		return experience;
+	}
+
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+
+}

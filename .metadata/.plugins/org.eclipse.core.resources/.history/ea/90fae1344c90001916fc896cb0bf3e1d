@@ -1,0 +1,79 @@
+package admin;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+public class AdminSection {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AdminSection window = new AdminSection();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AdminSection() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 500, 400);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblAdminSection = new JLabel("ADMIN SECTION");
+		lblAdminSection.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAdminSection.setFont(new Font("Tahoma", Font.BOLD, 32));
+		lblAdminSection.setBounds(78, 13, 326, 84);
+		frame.getContentPane().add(lblAdminSection);
+		
+		JButton button = new JButton("Admin Login");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		button.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		button.setBounds(158, 110, 166, 51);
+		frame.getContentPane().add(button);
+		
+		JButton button_1 = new JButton("Cashier Login");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		button_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		button_1.setBounds(158, 189, 166, 51);
+		frame.getContentPane().add(button_1);
+		
+		JButton button_2 = new JButton("Cashier Login");
+		button_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		button_2.setBounds(158, 266, 166, 51);
+		frame.getContentPane().add(button_2);
+	}
+
+}

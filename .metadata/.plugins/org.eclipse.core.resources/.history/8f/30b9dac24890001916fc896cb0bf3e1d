@@ -1,0 +1,78 @@
+package login;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.GridBagLayout;
+import javax.swing.JLabel;
+import java.awt.GridBagConstraints;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.Insets;
+
+public class Login {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login window = new Login();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Login() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 530, 400);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		frame.getContentPane().setLayout(gridBagLayout);
+		
+		JLabel lblNewLabel = new JLabel("LOGIN");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 32));
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel.gridx = 6;
+		gbc_lblNewLabel.gridy = 1;
+		frame.getContentPane().add(lblNewLabel, gbc_lblNewLabel);
+		
+		JButton btnAdminLogin = new JButton("Admin Login");
+		btnAdminLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		GridBagConstraints gbc_btnAdminLogin = new GridBagConstraints();
+		gbc_btnAdminLogin.insets = new Insets(0, 0, 5, 5);
+		gbc_btnAdminLogin.gridx = 6;
+		gbc_btnAdminLogin.gridy = 4;
+		frame.getContentPane().add(btnAdminLogin, gbc_btnAdminLogin);
+		
+		JButton btnCashierLogin = new JButton("Cashier Login");
+		btnCashierLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		GridBagConstraints gbc_btnCashierLogin = new GridBagConstraints();
+		gbc_btnCashierLogin.insets = new Insets(0, 0, 0, 5);
+		gbc_btnCashierLogin.gridx = 6;
+		gbc_btnCashierLogin.gridy = 7;
+		frame.getContentPane().add(btnCashierLogin, gbc_btnCashierLogin);
+	}
+}

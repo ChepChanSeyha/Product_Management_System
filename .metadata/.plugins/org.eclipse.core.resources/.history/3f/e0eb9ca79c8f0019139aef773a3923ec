@@ -1,0 +1,20 @@
+package seyha;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnect {
+    Connection conn = null;
+    public static Connection DBConnect(){
+        try{
+            Class.forName("org.sqlite.JDBC");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:salesandinventory");
+            return conn;
+        }catch(Exception ex){
+            System.out.println("Error" + ex);
+            return null;
+        }
+        
+    }
+    
+}

@@ -1,0 +1,61 @@
+package login;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
+
+public class Login {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login window = new Login();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Login() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 500, 400);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel label = new JLabel("LOGIN");
+		label.setFont(new Font("Tahoma", Font.BOLD, 32));
+		label.setBounds(194, 47, 107, 39);
+		frame.getContentPane().add(label);
+		
+		JButton button = new JButton("Admin Login");
+		button.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		button.setBounds(176, 151, 143, 33);
+		frame.getContentPane().add(button);
+		
+		JButton button_1 = new JButton("Cashier Login");
+		button_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		button_1.setBounds(171, 249, 153, 33);
+		frame.getContentPane().add(button_1);
+	}
+}
