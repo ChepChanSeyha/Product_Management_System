@@ -1,3 +1,4 @@
+
 package admin;
 
 import java.awt.EventQueue;
@@ -23,6 +24,15 @@ public class AddProduct {
 	private JTextField sale;
 	private JTextField buy;
 	private JTextField stock;
+	private Product product;
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
 	/**
 	 * Launch the application.
@@ -151,14 +161,14 @@ public class AddProduct {
 		sale.setHorizontalAlignment(SwingConstants.CENTER);
 		sale.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		sale.setColumns(10);
-		sale.setBounds(198, 226, 197, 37);
+		sale.setBounds(198, 225, 150, 37);
 		frame.getContentPane().add(sale);
 		
 		buy = new JTextField();
 		buy.setHorizontalAlignment(SwingConstants.CENTER);
 		buy.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		buy.setColumns(10);
-		buy.setBounds(199, 294, 197, 37);
+		buy.setBounds(199, 294, 150, 37);
 		frame.getContentPane().add(buy);
 		
 		JLabel lblContact = new JLabel("Buy");
@@ -195,6 +205,20 @@ public class AddProduct {
 		btnBack.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnBack.setBounds(70, 443, 134, 37);
 		frame.getContentPane().add(btnBack);
+		
+		JButton btnNewButton = new JButton("$");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		btnNewButton.setBounds(346, 224, 50, 39);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton button = new JButton("$");
+		button.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		button.setBounds(346, 293, 50, 39);
+		frame.getContentPane().add(button);
 	}
 	
 	public JFrame getFrame() {

@@ -22,10 +22,10 @@ public class CRUD_Product {
 				String[] row= new String[6];
 				row[0]= rs.getInt(1)+"";
 				row[1]= rs.getString(2);
-				row[2]= rs.getString("Supplier");
-				row[3]= rs.getDouble("Sale")+"";
-				row[4]= rs.getDouble("Buy")+"";
-				row[5]= rs.getString("Stock");
+				row[2]= rs.getString(3);
+				row[3]= rs.getDouble(4)+"";
+				row[4]= rs.getDouble(5)+"";
+				row[5]= rs.getString(6);
 				model.addRow(row);
 			}
 			
@@ -76,7 +76,7 @@ public class CRUD_Product {
 	public int edit(Product p) {
 		int effectedRow=0;
 		try {
-			PreparedStatement ps = ConnectDB.getConnection().prepareStatement("update product set Name=?, Spplier=?, Sale=?, Buy=?, Stock=? where ID=?");
+			PreparedStatement ps = ConnectDB.getConnection().prepareStatement("update product set Name=?, Supplier=?, Sale=?, Buy=?, Stock=? where ID=?");
 			ps.setString(1, p.getName());
 			ps.setString(2, p.getSupplier());
 			ps.setDouble(3, p.getSale());
@@ -93,12 +93,16 @@ public class CRUD_Product {
 	public int delete(int id) {
 		int effectedRow=0;
 		try {
-			PreparedStatement ps = ConnectDB.getConnection().prepareStatement("delete from product where ID=? ");
+			PreparedStatement ps = ConnectDB.getConnection().prepareStatement("DELETE FROM product WHERE ID=? ");
 			ps.setInt(1, id);
 			effectedRow= ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return effectedRow;
+	}
+	
+	public void closeConnection() {
+		this.ConnectDB.closeConnection();
 	}
 }

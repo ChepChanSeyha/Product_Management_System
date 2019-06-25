@@ -4,23 +4,28 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
 import java.awt.Font;
+import javax.swing.SwingConstants;
+
+import admin.AdminSection;
+import cashier.CashierSection;
+import connection.Connections;
+
+import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
 
 public class Login {
 
-	public JFrame frame;
-
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
+	private JFrame frame;
+	private JTextField username;
+	private JTextField password;
 
 	/**
 	 * Launch the application.
@@ -36,6 +41,30 @@ public class Login {
 				}
 			}
 		});
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JTextField getTextField() {
+		return username;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.username = textField;
+	}
+
+	public JTextField getTextField_1() {
+		return password;
+	}
+
+	public void setTextField_1(JTextField textField_1) {
+		this.password = textField_1;
 	}
 
 	/**
@@ -54,42 +83,91 @@ public class Login {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel label = new JLabel("LOGIN");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("Tahoma", Font.BOLD, 32));
-		label.setBounds(158, 27, 166, 84);
-		frame.getContentPane().add(label);
+		JLabel lblAdminLogin = new JLabel("ADMIN LOGIN");
+		lblAdminLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAdminLogin.setFont(new Font("Tahoma", Font.BOLD, 32));
+		lblAdminLogin.setBounds(85, 13, 311, 84);
+		frame.getContentPane().add(lblAdminLogin);
 		
-		JButton button = new JButton("Admin Login");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		JLabel lblNewLabel = new JLabel("Username");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel.setBounds(65, 136, 134, 37);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPassword.setBounds(65, 202, 134, 37);
+		frame.getContentPane().add(lblPassword);
+		
+		username = new JTextField();
+		username.setHorizontalAlignment(SwingConstants.CENTER);
+		username.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		username.setBounds(199, 136, 197, 37);
+		frame.getContentPane().add(username);
+		username.setColumns(10);
+		
+		password = new JPasswordField();
+		password.setHorizontalAlignment(SwingConstants.CENTER);
+		password.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		password.setColumns(10);
+		password.setBounds(199, 202, 197, 37);
+		frame.getContentPane().add(password);
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Connections connection= new Connections();
 				try {
-					AdminLogin admin = new AdminLogin();
-					admin.getFrame().setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+					String query = "SELECT * FROM User WHERE UserName LIKE ? AND Password LIKE ?";
+					
+					PreparedStatement pStatement= connection.getConnection().prepareStatement(query);
+					pStatement.setString(1, username.getText());
+					pStatement.setString(2, password.getText());
+					ResultSet results= pStatement.executeQuery();
+					
+					while(results.next()) {
+						if(results.getString(4).equals("admin")) {
+							AdminSection adminsection = new AdminSection();
+							frame.dispose();
+							adminsection.getFrame().setVisible(true);
+							connection.closeConnection();
+							return;
+						}
+						else if(results.getString(4).equals("cashier")) {
+							CashierSection cashiersection = new CashierSection();
+							cashiersection.getFrame().setVisible(true);;
+							frame.dispose();
+							connection.closeConnection();
+							return;
+						}
+					}
+					JOptionPane.showMessageDialog(null, "Error! Something went wrong.");
+				} catch (Exception e1) {
+					System.out.print(e1);
 				}
-				frame.dispose();
+				connection.closeConnection();
 			}
 		});
-		button.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		button.setBounds(158, 152, 166, 51);
-		frame.getContentPane().add(button);
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnLogin.setBounds(262, 269, 134, 37);
+		frame.getContentPane().add(btnLogin);
 		
-		JButton button_1 = new JButton("Staff Login");
-		button_1.addActionListener(new ActionListener() {
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					CashierLogin cashier = new CashierLogin();
-					cashier.getFrame().setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
+					Login login = new Login();
+					login.frame.setVisible(true);
+				} catch (Exception e2) {
+					e2.printStackTrace();
 				}
 				frame.dispose();
 			}
 		});
-		button_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		button_1.setBounds(158, 238, 166, 51);
-		frame.getContentPane().add(button_1);
+		btnBack.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnBack.setBounds(82, 269, 134, 37);
+		frame.getContentPane().add(btnBack);
 	}
 }

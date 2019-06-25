@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import product.CRUD_Product;
 import staff.CRUD_Staff;
 
 import javax.swing.JButton;
@@ -84,7 +83,7 @@ public class ViewStaff {
 		table_1.setBounds(0, 0, 1123, 538);
 		DefaultTableModel modelStaff= new DefaultTableModel();
 		table_1.setModel(modelStaff);
-		String[] column1= {"ID", "Username", "Password", "Position", "Contact", "Salary", "Gender"};	
+		String[] column1= {"ID", "Username", "Position", "Contact", "Salary", "Gender"};	
 		modelStaff.setColumnIdentifiers(column1);
 		try {
 			CRUD_Staff crud = new CRUD_Staff();
@@ -114,7 +113,7 @@ public class ViewStaff {
 		Delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					CRUD_Product crud= new CRUD_Product();
+					CRUD_Staff crud = new CRUD_Staff();
 					if(crud.delete(staff_id)>0) {
 						JOptionPane.showMessageDialog(null, "You have deleted a Staff Record");
 						getFrame().dispose();

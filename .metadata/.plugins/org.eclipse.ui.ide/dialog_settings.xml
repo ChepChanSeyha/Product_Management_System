@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\Java_Project\SE_Project"/>
+		<item value="D:\Java_Project\hospital_management_system-master"/>
+		<item value="D:\Java_Project\java-inventory-management-system-swing-hibernate-nepal-master"/>
+		<item value="D:\Java_Project\feereport"/>
+		<item value="D:\Java_Project\Sales-and-Inventory-System---SAD-Project-Built-with-Java-Swing-SQLite-Database-master"/>
+		<item value="C:\Users\chepc\Desktop\TicTacToe"/>
 		<item value="D:\Java_Project"/>
 	</list>
 	<section name="DialogMarkerPropertiesDialogSettings">

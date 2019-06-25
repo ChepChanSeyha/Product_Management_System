@@ -22,10 +22,11 @@ public class CRUD_Staff {
 				String[] row= new String[7];
 				row[0]= rs.getInt(1)+"";
 				row[1]= rs.getString(2);
-				row[3]= rs.getString(4);
-				row[4]= rs.getString(5);
-				row[5]= rs.getDouble(6)+"";
-				row[6]= rs.getString(7);
+				row[2]= rs.getString(4);
+				row[3]= rs.getString(5);
+				row[4]= rs.getDouble(6)+"";
+				row[5]= rs.getString(7);
+			
 				model.addRow(row);
 			}
 			
