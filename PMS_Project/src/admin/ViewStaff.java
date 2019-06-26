@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -13,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import staff.CRUD_Staff;
+import staff.Staff;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -28,6 +28,8 @@ public class ViewStaff {
 	private JTable table_1;
 	private JButton button;
 	private int staff_id;
+	private Staff staff;
+	DefaultTableModel modelStaff= new DefaultTableModel();
 
 	/**
 	 * Launch the application.
@@ -78,6 +80,28 @@ public class ViewStaff {
 			public void mouseClicked(MouseEvent arg0) {
 				int rowSeleted= table_1.getSelectedRow();
 				staff_id= Integer.parseInt(table_1.getValueAt(rowSeleted, 0).toString());
+				try {
+					try {
+						CRUD_Staff crud_Staff = new CRUD_Staff();
+						setStaff(crud_Staff.find(staff_id));
+						crud_Staff.closeConnection();
+						
+						UpdateStaff updateStaff = new UpdateStaff();
+						updateStaff.setIndextable(rowSeleted);
+						updateStaff.setStaff(staff);
+						updateStaff.setModelProduct(modelStaff);
+						updateStaff.getFrame().setVisible(true);
+						updateStaff.getUsername().setText(staff.getUsername());
+						updateStaff.getPosition().setSelectedItem(staff.getPosition());
+						updateStaff.getContact().setText(staff.getContact());
+						updateStaff.getSalary().setText(staff.getSalary()+"");
+						updateStaff.getGender().setText(staff.getGender());
+					} catch (Exception e) {
+						System.out.println(e);
+					}
+				} catch (Exception e) {
+					System.out.println(e);
+				}
 			}
 		});
 		table_1.setBounds(0, 0, 1123, 538);
@@ -108,28 +132,6 @@ public class ViewStaff {
 		button.setFont(new Font("Tahoma", Font.BOLD, 20));
 		button.setBounds(12, 13, 134, 37);
 		frame.getContentPane().add(button);
-		
-		JButton Delete = new JButton("Delete");
-		Delete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					CRUD_Staff crud = new CRUD_Staff();
-					if(crud.delete(staff_id)>0) {
-						JOptionPane.showMessageDialog(null, "You have deleted a Staff Record");
-						getFrame().dispose();
-						ViewStaff view = new ViewStaff();
-						view.getFrame().setVisible(true);
-					}else {
-						JOptionPane.showMessageDialog(null, "Invalid Information");
-					}
-				} catch (Exception e2) {
-					System.out.println(e);
-				}
-			}
-		});
-		Delete.setFont(new Font("Tahoma", Font.BOLD, 20));
-		Delete.setBounds(636, 13, 134, 37);
-		frame.getContentPane().add(Delete);
 	}
 
 	public JFrame getFrame() {
@@ -138,5 +140,13 @@ public class ViewStaff {
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
+	}
+
+	public Staff getStaff() {
+		return staff;
+	}
+
+	public void setStaff(Staff staff) {
+		this.staff = staff;
 	}
 }

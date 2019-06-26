@@ -12,12 +12,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
 import staff.CRUD_Staff;
 import staff.Staff;
 import javax.swing.JComboBox;
 
-public class AddStaff {
+public class UpdateStaff {
 
 	private JFrame frame;
 	private JTextField username;
@@ -26,7 +27,78 @@ public class AddStaff {
 	private JComboBox position;
 	private JTextField contact;
 	private JTextField salary;
+	private DefaultTableModel modelStaff;
+	
+	public JTextField getUsername() {
+		return username;
+	}
+
+	public void setUsername(JTextField username) {
+		this.username = username;
+	}
+
+	public JTextField getPassword() {
+		return password;
+	}
+
+	public void setPassword(JTextField password) {
+		this.password = password;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public JComboBox getPosition() {
+		return position;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void setPosition(JComboBox position) {
+		this.position = position;
+	}
+
+	public JTextField getContact() {
+		return contact;
+	}
+
+	public void setContact(JTextField contact) {
+		this.contact = contact;
+	}
+
+	public JTextField getSalary() {
+		return salary;
+	}
+
+	public void setSalary(JTextField salary) {
+		this.salary = salary;
+	}
+
+	public JTextField getGender() {
+		return gender;
+	}
+
+	public void setGender(JTextField gender) {
+		this.gender = gender;
+	}
+
 	private JTextField gender;
+	private Staff staff;
+	private DefaultTableModel modelProduct;
+	private int indextable;
+
+	public DefaultTableModel getModelProduct() {
+		return modelProduct;
+	}
+
+	public void setModelProduct(DefaultTableModel modelProduct) {
+		this.modelProduct = modelProduct;
+	}
+
+	public int getIndextable() {
+		return indextable;
+	}
+
+	public void setIndextable(int indextable) {
+		this.indextable = indextable;
+	}
 
 	/**
 	 * Launch the application.
@@ -35,7 +107,7 @@ public class AddStaff {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddStaff window = new AddStaff();
+					UpdateStaff window = new UpdateStaff();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +119,7 @@ public class AddStaff {
 	/**
 	 * Create the application.
 	 */
-	public AddStaff() {
+	public UpdateStaff() {
 		initialize();
 	}
 
@@ -60,15 +132,6 @@ public class AddStaff {
 		frame.setBounds(100, 100, 500, 627);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JButton button = new JButton("$");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		button.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		button.setBounds(346, 363, 50, 38);
-		frame.getContentPane().add(button);
 		
 		JLabel lblAdminLogin = new JLabel("ADD STAFF");
 		lblAdminLogin.setHorizontalAlignment(SwingConstants.CENTER);
@@ -131,7 +194,7 @@ public class AddStaff {
 		salary.setHorizontalAlignment(SwingConstants.CENTER);
 		salary.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		salary.setColumns(10);
-		salary.setBounds(198, 363, 152, 37);
+		salary.setBounds(198, 363, 197, 37);
 		frame.getContentPane().add(salary);
 		
 		JLabel lblSalary = new JLabel("Salary");
@@ -153,12 +216,55 @@ public class AddStaff {
 		gender.setBounds(198, 435, 197, 37);
 		frame.getContentPane().add(gender);
 		
-		JButton btnBack = new JButton("Back");
+		JButton update = new JButton("Update");
+		update.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					int idStaff= staff.getId();
+					String nameStaff = username.getText();
+					String passStaff = password.getText();
+					String positionStaff = position.getSelectedItem().toString();
+					String contactStaff = contact.getText();
+					double salaryStaff= Double.parseDouble(salary.getText().toString());
+					String genderStaff = gender.getText();
+					Staff staffSta= new Staff(idStaff, nameStaff, passStaff, positionStaff, contactStaff, salaryStaff, genderStaff);
+					
+					CRUD_Staff crud = new CRUD_Staff();
+					if(crud.edit(staffSta) > 0) {
+						modelStaff.setValueAt(staffSta.getId(), indextable, 0);
+						modelStaff.setValueAt(password.getText(), indextable, 1);
+						modelStaff.setValueAt(position.getSelectedItem().toString(), indextable, 2);
+						modelStaff.setValueAt(contact.getText(), indextable,3);
+						modelStaff.setValueAt(salary.getText(), indextable, 4);
+						modelStaff.setValueAt(gender.getText(), indextable, 5);
+						getFrame().dispose();
+						JOptionPane.showMessageDialog(null, "Is updated");
+					};
+					
+					
+				} catch (Exception e2) {
+					System.out.println(e);
+				}
+			}
+		});
+		update.setFont(new Font("Tahoma", Font.BOLD, 20));
+		update.setBounds(262, 514, 134, 37);
+		frame.getContentPane().add(update);
+		
+		JButton btnBack = new JButton("Delete");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					AdminSection admin = new AdminSection();
-					admin.getFrame().setVisible(true);
+					CRUD_Staff crud_Staff = new CRUD_Staff();
+					if(crud_Staff.delete(staff.getId()) >0) {
+						modelProduct.removeRow(getIndextable());
+						getFrame().dispose();
+						JOptionPane.showMessageDialog(null, "Is Deleted");
+						crud_Staff.closeConnection();
+					}else{
+						JOptionPane.showMessageDialog(null, "Is failed");
+					};
+					
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -166,62 +272,8 @@ public class AddStaff {
 			}
 		});
 		btnBack.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnBack.setBounds(68, 514, 134, 37);
+		btnBack.setBounds(70, 514, 134, 37);
 		frame.getContentPane().add(btnBack);
-		
-		JButton add = new JButton("Add");
-		add.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					if( username.getText().isEmpty() || password.getText().isEmpty() ||  position.getSelectedItem().toString().isEmpty() || contact.getText().isEmpty() 
-							|| salary.getText().isEmpty() || gender.getText().isEmpty()) {
-						JOptionPane.showMessageDialog(null, "Invalid Information");
-						return;
-					}
-					CRUD_Staff crud = new CRUD_Staff();
-					Staff s = new Staff();
-					String sname= username.getText();
-					String spass= password.getText();
-					String sposition= position.getSelectedItem().toString();
-					String scontact= contact.getText();
-					double ssalary= Double.parseDouble(salary.getText());
-					String sgender= gender.getText();
-					
-					switch (add.getText()) {
-					case "Add":	
-							Staff staffCreate= new Staff(0, sname, spass, sposition, scontact, ssalary, sgender);
-							if(crud.create(staffCreate)>0) {
-								JOptionPane.showMessageDialog(null, "You have created a Staff Record");
-							}else {
-								JOptionPane.showMessageDialog(null, "Invalid Information");
-							}
-							
-						break;
-					case "Update":
-						Staff staffUpdate= new Staff(s.getId(), sname, spass, sposition, scontact, ssalary, sgender);
-						if(crud.create(staffUpdate)>0) {
-							JOptionPane.showMessageDialog(null, "You have updated a Staff Record");
-						}else {
-							JOptionPane.showMessageDialog(null, "Invalid Information");
-						}
-						
-						break;
-					default:
-						break;
-					}
-					
-					getFrame().dispose();
-					ViewStaff view = new ViewStaff();
-					view.getFrame().setVisible(true);
-					
-				} catch (Exception e1) {
-					System.out.println(e1);
-				}
-			}
-		});
-		add.setFont(new Font("Tahoma", Font.BOLD, 20));
-		add.setBounds(262, 514, 134, 37);
-		frame.getContentPane().add(add);
 	}
 	
 	public JFrame getFrame() {
@@ -262,5 +314,13 @@ public class AddStaff {
 
 	public void setTextField_4(JTextField textField_4) {
 		this.salary = textField_4;
+	}
+
+	public Staff getStaff() {
+		return staff;
+	}
+
+	public void setStaff(Staff staff) {
+		this.staff = staff;
 	}
 }

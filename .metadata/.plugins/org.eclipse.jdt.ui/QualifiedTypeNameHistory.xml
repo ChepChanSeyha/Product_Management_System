@@ -19,7 +19,6 @@
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="cashier.CashierSection"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="staff.Staff"/>
 <fullyQualifiedTypeName name="admin.ViewCashier"/>
 <fullyQualifiedTypeName name="cashier.AddProduct"/>
 <fullyQualifiedTypeName name="cashier.ViewProduct"/>
@@ -33,10 +32,15 @@
 <fullyQualifiedTypeName name="admin.AdminSection"/>
 <fullyQualifiedTypeName name="connections.ConnectDB"/>
 <fullyQualifiedTypeName name="login.Login"/>
-<fullyQualifiedTypeName name="staff.CRUD_Staff"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="admin.UpdateProduct"/>
 <fullyQualifiedTypeName name="product.Product"/>
 <fullyQualifiedTypeName name="product.CRUD_Product"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.awt.Event"/>
+<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+<fullyQualifiedTypeName name="javax.swing.JPasswordField"/>
+<fullyQualifiedTypeName name="staff.Staff"/>
+<fullyQualifiedTypeName name="admin.UpdateProduct"/>
+<fullyQualifiedTypeName name="admin.UpdateStaff"/>
+<fullyQualifiedTypeName name="staff.CRUD_Staff"/>
 </qualifiedTypeNameHistroy>

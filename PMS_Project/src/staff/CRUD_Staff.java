@@ -104,4 +104,8 @@ public class CRUD_Staff {
 		}
 		return effectedRow;
 	}
+	
+	public void closeConnection() {
+		this.ConnectDB.closeConnection();
+	}
 }
